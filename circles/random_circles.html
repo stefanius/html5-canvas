@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <script src="js/circle.js"></script>
+    <script src="js/rgbcolor.js"></script>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+    document.body.scroll = "no"; // ie only
+
+    var rgbcolor = new RGBColor(Math.floor( Math.random() * 255) ,Math.floor( Math.random() * 255),Math.floor( Math.random() * 255));
+
+    var canvas = document.getElementById('myCanvas');
+    canvas.width = screen.width;
+    canvas.height = screen.height;
+
+    window.scrollbars = false;
+    window.scrollbars = false;
+
+    var context = canvas.getContext('2d');
+    var radius = 50;
+
+   /* for (var i = 1; i < 2000; i++) {
+        var circle = new Circle(Math.floor( Math.random() * canvas.width), Math.floor( Math.random() * canvas.height), radius, rgbcolor.toHexColor());
+        circle.draw(context);
+        rgbcolor.increase();
+    }*/
+
+    window.setInterval(function() {
+        var circle = new Circle(Math.floor( Math.random() * canvas.width), Math.floor( Math.random() * canvas.height), radius, rgbcolor.toHexColor());
+        circle.draw(context);
+        rgbcolor.increase();
+    },100);
+
+
+</script>
+</body>
+</html>
