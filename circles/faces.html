@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <script src="js/circle.js"></script>
+    <script src="js/rgbcolor.js"></script>
+    <script src="js/face.js"></script>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+    document.body.scroll = "no"; // ie only
+
+    var rgbcolor = new RGBColor(Math.floor( Math.random() * 255) ,Math.floor( Math.random() * 255),Math.floor( Math.random() * 255));
+
+    var canvas = document.getElementById('myCanvas');
+    canvas.width = screen.width;
+    canvas.height = screen.height;
+
+    window.scrollbars = false;
+    window.scrollbars = false;
+
+    var context = canvas.getContext('2d');
+    var radius = 50;
+
+
+    var face1 = new Face(200, 200, rgbcolor.toHexColor());
+    face1.draw(context);
+    rgbcolor.increase();
+
+    var face2 = new Face(800, 200, rgbcolor.toHexColor());
+    face2.draw(context);
+    rgbcolor.increase();
+
+    var face3 = new Face(800, 600, rgbcolor.toHexColor());
+    face3.draw(context);
+    rgbcolor.increase();
+
+    var face4 = new Face(200, 600, rgbcolor.toHexColor());
+    face4.draw(context);
+</script>
+</body>
+</html>
